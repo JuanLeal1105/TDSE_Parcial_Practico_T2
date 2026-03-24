@@ -9,6 +9,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+@RestController
 public class ProxyController {
 
     private static final String USER_AGENT = "Mozilla/5.0";
