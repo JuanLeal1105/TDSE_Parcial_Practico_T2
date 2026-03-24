@@ -95,3 +95,6 @@ Para esta parte, utilizamos los mismos comandos en la sección de cómo correr e
 Luego de seguir los pasos anteriores se ingresa a la dirección pública suministrada por la isntancia para poder hacer las pruebas de los endpoits:
 ![lucasAWS.png](images%2FlucasAWS.png)
 ![evidenceWith20AWS.png](images%2FevidenceWith20AWS.png)
+
+Posterior a ello probamos con el proxy:
+![proxyAWS.png](images%2FproxyAWS.png)
