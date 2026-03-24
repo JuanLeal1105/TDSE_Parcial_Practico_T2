@@ -19,7 +19,7 @@ public class ProxyController {
         String service1 = System.getenv("MATH_SERVICE_1");
         String service2 = System.getenv("MATH_SERVICE_2");
 
-        if (service1 == null) service1 = "http://localhost:8081";
+        if (service1 == null) service1 = "http://localhost:8080/math/lucas";
         if (service2 == null) service2 = "http://localhost:8082";
 
         try {
