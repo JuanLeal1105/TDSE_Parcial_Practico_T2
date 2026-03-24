@@ -54,7 +54,11 @@ Se puede acceder a los endpoints haciendo uso de `http://localhost:8008/math/luc
 
 - Usando n = 40
   ![lucas40Local.png](images%2Flucas40Local.png)
-   
+
+#### **Usando el proxy**
+Accediendo desde la url: `http://localhost:8080/proxy/sequence?value=13`
+![proxyLocal.png](images%2FproxyLocal.png)
+
 
 ## **Despliegue en Amazon**
 Para realizar el despliegue en AWS se debe de crear una instancia y descargar la key para poder ingresar a ella haciendo uso de ssh.

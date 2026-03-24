@@ -19,15 +19,15 @@ public class ProxyController {
         String service1 = System.getenv("MATH_SERVICE_1");
         String service2 = System.getenv("MATH_SERVICE_2");
 
-        if (service1 == null) service1 = "http://localhost:8080/math/lucas";
+        if (service1 == null) service1 = "http://localhost:8080";
         if (service2 == null) service2 = "http://localhost:8082";
 
         try {
-            return sendGet(service1 + "/sequence?value=" + value);
+            return sendGet(service1 + "/math/lucas?n=" + value);
         } catch (IOException e1) {
-            System.out.println("Servicio 1 caído. Delegando al PASIVO (Servicio 2)...");
+            System.out.println("Servicio 1 caído o ruta no encontrada. Delegando al PASIVO (Servicio 2)...");
             try {
-                return sendGet(service2 + "/sequence?value=" + value);
+                return sendGet(service2 + "/math/lucas?n=" + value);
             } catch (IOException e2) {
                 return "{\"error\": \"Falla crítica: Ambos servicios están caídos.\"}";
             }
@@ -35,25 +35,28 @@ public class ProxyController {
     }
 
     private String sendGet(String urlStr) throws IOException {
-        URL url = new URL(urlStr);
-        HttpURLConnection con = (HttpURLConnection) url.openConnection();
+        URL obj = new URL(urlStr);
+        HttpURLConnection con = (HttpURLConnection) obj.openConnection();
         con.setRequestMethod("GET");
         con.setRequestProperty("User-Agent", USER_AGENT);
 
         con.setConnectTimeout(3000);
         con.setReadTimeout(3000);
-
         int responseCode = con.getResponseCode();
+        System.out.println("GET Response Code :: " + responseCode + " for URL: " + urlStr);
+
         if (responseCode == HttpURLConnection.HTTP_OK) {
             BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
             String inputLine;
-            StringBuilder response = new StringBuilder();
+            StringBuffer response = new StringBuffer();
             while ((inputLine = in.readLine()) != null) {
                 response.append(inputLine);
             }
             in.close();
+            System.out.println("GET DONE");
             return response.toString();
         } else {
+            System.out.println("GET request not worked. Response Code: " + responseCode);
             throw new IOException("HTTP Error: " + responseCode);
         }
     }
