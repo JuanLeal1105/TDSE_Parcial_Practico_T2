@@ -48,9 +48,43 @@ Para correr el proyecto en local lo que se tiene que hacer es lo siguiente:
    ```
 
 #### **Evidencia en Local**
+Se puede acceder a los endpoints haciendo uso de `http://localhost:8008/math/lucas?n=13`
 - Usando n = 13
   ![lucas13Local.png](images%2Flucas13Local.png)
 
 - Usando n = 40
   ![lucas40Local.png](images%2Flucas40Local.png)
    
+
+## **Despliegue en Amazon**
+Para realizar el despliegue en AWS se debe de crear una instancia y descargar la key para poder ingresar a ella haciendo uso de ssh.
+
+Los parametros al momento de crear la instancia se dejan por default tal como los provee el E2C y lo único que se debe de cambiar son las reglas de seguridad de la instancia permitiendo tráfico HTTP así:
+![rules.png](images%2Frules.png)
+
+Ya luego de esta configuración procedemos de la siguiente manera
+### **Instalaciones previas**
+1. **Instalación de Java**
+   ```bash
+   sudo yum install java-17-amazon-corretto
+   ```
+
+2. **Instalación de Git**
+   ```bash
+   sudo yum install git -y
+   ```
+   
+3. **Instalación de Maven**
+   ```bash
+   sudo yum install maven -y
+   ```
+### **Ingresar el proyecto a la instancia**
+Para esta parte, utilizamos los mismos comandos en la sección de cómo correr el proyecto en local de tal forma que debemos hacer:
+1. Clonar el repo
+2. Compilar el proyecto
+   ![compileAWS.png](images%2FcompileAWS.png)
+3. Instalar las dependencias
+   ![installAWS.png](images%2FinstallAWS.png)
+4. Correr el proyecto
+
+Luego de seguir los pasos anteriores se ingresa a la dirección pública suministrada por la isntancia para poder hacer las pruebas de los endpoits:
