@@ -17,7 +17,7 @@ public class MathController {
         this.service = service;
     }
     @GetMapping("/lucas")
-    public ResponseEntity<List<Integer>>getLucas(@PathVariable int value){
+    public ResponseEntity<List<Integer>>getLucas(@PathVariable(name = "value") int value){
         return ResponseEntity.ok(service.getLucas(value));
     }
 }

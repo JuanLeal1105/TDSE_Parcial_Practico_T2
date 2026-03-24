@@ -9,7 +9,9 @@ import java.util.List;
 public class MathService {
     public List<Integer> getLucas (int value){
         List<Integer> chain = new ArrayList<>();
-        chain.add(calculateLucas(value));
+        for (int i = 0; i<=value; i++){
+            chain.add(calculateLucas(i));
+        }
         return chain;
     }
 
@@ -19,6 +21,7 @@ public class MathService {
         }else if (value == 1){
             return 1;
         }
+
         return calculateLucas(value -1) + calculateLucas(value -2);
     }
 }

@@ -1,5 +1,7 @@
 package com.example.parcial;
 
+import com.example.parcial.infraestructure.MathService;
+import com.example.parcial.web.MathController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
