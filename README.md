@@ -86,5 +86,7 @@ Para esta parte, utilizamos los mismos comandos en la sección de cómo correr e
 3. Instalar las dependencias
    ![installAWS.png](images%2FinstallAWS.png)
 4. Correr el proyecto
+   ![runAWS.png](images%2FrunAWS.png)
 
 Luego de seguir los pasos anteriores se ingresa a la dirección pública suministrada por la isntancia para poder hacer las pruebas de los endpoits:
+![lucasAWS.png](images%2FlucasAWS.png)
