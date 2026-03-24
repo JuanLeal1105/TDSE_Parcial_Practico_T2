@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/math")
@@ -17,8 +17,7 @@ public class MathController {
         this.service = service;
     }
     @GetMapping("/lucas")
-    public ResponseEntity<Integer>getLucas(@PathVariable int value){
-        return ResponseEntity.ok(service.calculateLucas(value));
+    public ResponseEntity<List<Integer>>getLucas(@PathVariable int value){
+        return ResponseEntity.ok(service.getLucas(value));
     }
-
 }
